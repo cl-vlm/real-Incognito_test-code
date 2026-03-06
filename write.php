@@ -18,11 +18,11 @@ if(!isset($_SESSION['userid'])) {
         <form action="write_process.php" method="POST">
             <input type="text" name="title" placeholder="제목을 입력하세요" required style="width: 100%; padding: 15px; margin-bottom: 15px;">
             <p style="margin-bottom: 15px; padding: 15px; background: #eee; border-radius: 8px;">
-                작성자: <strong><?php echo $_SESSION['userid']; ?></strong>
-            </p>
+                작성자: <strong>Guest</strong> </p>
             <textarea name="content" placeholder="내용을 입력하세요" required style="width: 100%; height: 250px; padding: 15px; margin-bottom: 15px;"></textarea>
-            <button type="submit" class="btn" style="width: 100%; padding: 15px; background: #4EA685; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">게시글 등록</button>
+            <button type="submit" style="width: 100%; padding: 15px; background: #4EA685; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">게시글 등록</button>
         </form>
+        <button onclick="location.href='main.php'" style="width: 100%; margin-top: 10px; padding: 10px; background: #757575; color: white; border: none; border-radius: 8px; cursor: pointer;">목록으로</button>
     </div>
 </body>
 </html>
