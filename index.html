@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCOGNITO PROJECT</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <h1 style="text-align: center; padding: 30px; color: #333; letter-spacing: 4px; font-weight: 800;">INCOGNITO PROJECT</h1>
+    </header>
+
+    <main>
+        <div id="container" class="container">
+            <div class="row">
+                <div class="col align-items-center flex-col sign-up">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form sign-up">
+                            <form action="signup.php" method="POST">
+                                <div class="input-group">
+                                    <i class='bx bxs-user'></i>
+                                    <input type="text" name="username" placeholder="Username" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-lock-alt'></i>
+                                    <input type="password" name="password" placeholder="Password" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-star'></i>
+                                    <input type="text" name="star" placeholder="좋아하는 연예인" required>
+                                </div>
+                                <button type="submit">SIGN UP</button>
+                            </form>
+                            <p>
+                                <span>Already have an account?</span>
+                                <b onclick="toggle()" class="pointer">Sign in here</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col align-items-center flex-col sign-in">
+                    <div class="form-wrapper align-items-center">
+                        <div class="form sign-in">
+                            <form action="login.php" method="POST">
+                                <div class="input-group">
+                                    <i class='bx bxs-user'></i>
+                                    <input type="text" name="username" placeholder="Username" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class='bx bxs-lock-alt'></i>
+                                    <input type="password" name="password" placeholder="Password" required>
+                                </div>
+                                <button type="submit">SIGN IN</button>
+                            </form>
+                            <p style="margin-top: 20px;">
+                                <span>Don't have an account?</span>
+                                <b onclick="toggle()" class="pointer">Sign up here</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row content-row">
+                <div class="col align-items-center flex-col">
+                    <div class="text sign-in"><h2>WELCOME</h2></div>
+                </div>
+                <div class="col align-items-center flex-col">
+                    <div class="text sign-up"><h2>JOIN WITH US</h2></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
