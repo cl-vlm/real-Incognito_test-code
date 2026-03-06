@@ -1,9 +1,5 @@
 <?php
 include "db.php";
-// 에러 디버깅을 위해 추가
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 try {
     $stmt = $conn->query("SELECT * FROM board ORDER BY num DESC");
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -22,11 +18,27 @@ try {
         th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
         th { background-color: #4EA685; color: white; }
         .del-btn { background-color: #ff4d4d; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+        /* 힌트 박스 스타일 */
+        .hint-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid #4EA685;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #2e7d32;
+        }
     </style>
 </head>
 <body>
     <div style="padding:50px; max-width:1000px; margin:auto; background: white; border-radius: 15px;">
         <h2>INCOGNITO PROJECT BOARD</h2>
+        
+        <div class="hint-box">
+            <strong>💡 Challenge Hint:</strong> 
+            게시판에 글을 작성하여 <code>window.config</code> 변수를 조작하고 플래그를 획득하세요. 
+            정답 페이로드가 포함된 글을 직접 클릭했을 때 플래그가 나타납니다.
+        </div>
+
         <table>
             <thead>
                 <tr>
@@ -55,9 +67,10 @@ try {
                 <?php endif; ?>
             </tbody>
         </table>
+
         <div style="margin-top: 20px;">
-            <button onclick="location.href='write.php'" style="padding: 10px 20px;">새 글 쓰기</button>
-            <button onclick="location.href='index.html'" style="padding: 10px 20px;">홈으로</button>
+            <button onclick="location.href='write.php'" style="padding: 10px 20px; cursor:pointer;">새 글 쓰기</button>
+            <button onclick="location.href='index.html'" style="padding: 10px 20px; cursor:pointer;">홈으로</button>
         </div>
     </div>
 </body>
