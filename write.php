@@ -1,9 +1,4 @@
 <?php
-session_start();
-if(!isset($_SESSION['userid'])) {
-    echo "<script>alert('로그인 후 이용해주세요.'); location.href='index.html';</script>";
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -26,3 +21,4 @@ if(!isset($_SESSION['userid'])) {
     </div>
 </body>
 </html>
+
