@@ -4,68 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INCOGNITO PROJECT</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="index.css">
+    <style>
+        /* CSS 파일이 꼬였을 경우를 대비한 강제 스타일 */
+        body { background-color: #f0f2f5 !important; display: block !important; }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+        }
+        .start-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1 style="text-align: center; padding: 30px; color: #333; letter-spacing: 4px; font-weight: 800;">INCOGNITO PROJECT</h1>
+        <h1 style="text-align: center; padding: 30px; color: #333;">INCOGNITO PROJECT</h1>
     </header>
 
-    <main>
-        <div id="container" class="container sign-in">
-            <div class="row">
-                <div class="col align-items-center flex-col sign-in">
-                    <div class="form-wrapper align-items-center">
-                        <div class="form sign-in">
-                            <form action="login.php" method="POST">
-                                <div class="input-group">
-                                    <i class='bx bxs-user'></i>
-                                    <input type="text" name="username" placeholder="Username" required>
-                                </div>
-                                <div class="input-group">
-                                    <i class='bx bxs-lock-alt'></i>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                </div>
-                                <button type="submit">SIGN IN</button>
-                            </form>
-                            <p style="margin-top: 20px;">
-                                <span>Don't have an account?</span>
-                                <b onclick="toggle()" class="pointer">Sign up here</b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col align-items-center flex-col sign-up">
-                    <div class="form-wrapper align-items-center">
-                        <div class="form sign-up">
-                            <form action="signup.php" method="POST">
-                                <div class="input-group">
-                                    <i class='bx bxs-user'></i>
-                                    <input type="text" name="username" placeholder="Username" required>
-                                </div>
-                                <div class="input-group">
-                                    <i class='bx bxs-lock-alt'></i>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                </div>
-                                <div class="input-group">
-                                    <i class='bx bxs-star'></i>
-                                    <input type="text" name="star" placeholder="좋아하는 연예인" required>
-                                </div>
-                                <button type="submit">SIGN UP</button>
-                            </form>
-                            <p>
-                                <span>Already have an account?</span>
-                                <b onclick="toggle()" class="pointer">Sign in here</b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <main class="main-content">
+        <div class="start-card">
+            <h2 style="color: #4EA685; margin-bottom: 20px;">DOM Clobbering Wargame</h2>
+            <p style="color: #666; margin-bottom: 30px;">준비가 되셨다면 아래 버튼을 눌러 시작하세요.</p>
+            <button onclick="location.href='main.php'" style="padding: 15px 40px; background: #4EA685; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">게시판 입장하기</button>
         </div>
     </main>
-
-    <script src="index.js"></script>
 </body>
 </html>
