@@ -1,24 +1,34 @@
 <?php
-// SQLite 사용 (파일 기반 DB)
+// Render Connections 섹션에서 복사한 정보들
+$host = "dpg-d6l9987gi27c73f6vb0g-a"; 
+$dbname = "incognito_db";
+$user = "incognito_db_user";
+$pass = "KI1TosRdRhrNSPdazKdjP0cl4Hkx9wS9"; 
+
 try {
-    $conn = new PDO("sqlite:database.db");
+    // PostgreSQL 연결 (포트 5432)
+    $dsn = "pgsql:host=$host;port=5432;dbname=$dbname";
+    $conn = new PDO($dsn, $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 게시판 테이블 생성
+    // 테이블 자동 생성
     $conn->exec("CREATE TABLE IF NOT EXISTS board (
-        num INTEGER PRIMARY KEY AUTOINCREMENT,
+        num SERIAL PRIMARY KEY,
         title TEXT,
         author TEXT,
         content TEXT,
-        reg_date DATETIME DEFAULT CURRENT_TIMESTAMP
+        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
 
-    // 테스트용 데이터 하나 삽입 (선택 사항)
-    $stmt = $conn->query("SELECT COUNT(*) FROM board");
-    if ($stmt->fetchColumn() == 0) {
-        $conn->exec("INSERT INTO board (title, author, content) VALUES ('Welcome!', 'Admin', '게시판이 시작되었습니다.')");
-    }
+    $conn->exec("CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username TEXT UNIQUE,
+        password TEXT,
+        star TEXT
+    )");
+
 } catch(PDOException $e) {
+    // 에러 발생 시 메시지 출력
     die("DB 연결 실패: " . $e->getMessage());
 }
 ?>
